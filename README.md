@@ -2,6 +2,8 @@
 
 Este projeto automatiza a **migração de arquivos `terraform.tfstate`** encontrados localmente para um **container no Azure Blob Storage**, garantindo que os estados do Terraform fiquem centralizados e seguros.
 
+---
+
 ## 📋 Funcionalidades
 
 - 🔍 Localiza recursivamente todos os arquivos `terraform.tfstate`.
@@ -12,6 +14,8 @@ Este projeto automatiza a **migração de arquivos `terraform.tfstate`** encontr
 - 📊 Exibe um resumo da migração (sucessos e falhas).
 - 📋 Lista os arquivos enviados para o container do Azure.
 
+---
+
 ## ⚙️ Pré-requisitos
 
 - Python **3.8+**
@@ -21,42 +25,48 @@ Este projeto automatiza a **migração de arquivos `terraform.tfstate`** encontr
 
 ```bash
 pip install azure-storage-blob
-🔧 Configuração
-No arquivo main.py, edite as seguintes variáveis no método main():
+```
 
-python
-Copiar código
+---
+
+## 🔧 Configuração
+
+No arquivo `main.py`, edite as seguintes variáveis no método `main()`:
+
+```python
 CONNECTION_STRING = "sua_connection_string_aqui"
 CONTAINER_NAME = "nome_do_container"
-⚠️ Atenção: nunca versione sua connection string em repositórios públicos.
+```
 
-▶️ Como executar
-Clone este repositório:
+> ⚠️ **Atenção**: nunca versione sua connection string em repositórios públicos.
 
-bash
-Copiar código
-git clone https://github.com/seu-repo/terraform-tfstate-migrator.git
-cd terraform-tfstate-migrator
-Execute o script:
+---
 
-bash
-Copiar código
-python main.py
-Acompanhe a saída no terminal para ver:
+## ▶️ Como executar
 
-Arquivos encontrados
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-repo/terraform-tfstate-migrator.git
+   cd terraform-tfstate-migrator
+   ```
 
-Diretórios numéricos
+2. Execute o script:
+   ```bash
+   python main.py
+   ```
 
-Status da conexão com o Azure
+3. Acompanhe a saída no terminal para ver:
+   - Arquivos encontrados
+   - Diretórios numéricos
+   - Status da conexão com o Azure
+   - Progresso e resumo do upload
+   - Lista final dos arquivos no container
 
-Progresso e resumo do upload
+---
 
-Lista final dos arquivos no container
+## 📊 Exemplo de saída
 
-📊 Exemplo de saída
-bash
-Copiar código
+```bash
 🚀 Iniciando migração completa de tfstate para Azure Blob Storage...
 
 📁 Arquivos encontrados:
@@ -85,15 +95,24 @@ Copiar código
 
 🎯 Migração concluída com sucesso!
 📤 2 arquivos terraform.tfstate migrados para Azure
-📌 Estrutura do Projeto
-bash
-Copiar código
+```
+
+---
+
+## 📌 Estrutura do Projeto
+
+```bash
 .
 ├── main.py         # Script principal da migração
 ├── README.md       # Este guia
-🚨 Observações
-Boa prática: use variáveis de ambiente ou Azure Key Vault para armazenar a connection string.
+```
 
-Caso o container não exista, o script abortará a execução.
+---
 
-Apenas arquivos chamados exatamente terraform.tfstate serão migrados.
+## 🚨 Observações
+
+- **Boa prática**: use variáveis de ambiente ou Azure Key Vault para armazenar a connection string.  
+- Caso o container não exista, o script abortará a execução.  
+- Apenas arquivos chamados exatamente `terraform.tfstate` serão migrados.  
+
+---
